@@ -8,21 +8,72 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .page-header {
-            background-color: var(--color-gray);
+            background-color: var(--color-blue);
+            color: white;
             padding: 80px 0;
             text-align: center;
         }
 
         .page-header h1 {
-            color: var(--color-blue);
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
 
-        .content-placeholder {
-            padding: 100px 0;
-            text-align: center;
-            color: #666;
+        .page-header p {
             font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .resource-card h3 {
+            color: var(--color-blue);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .resource-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .resource-card a {
+            color: var(--color-light-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -49,14 +100,79 @@
     <section class="page-header">
         <div class="container">
             <h1>Resources</h1>
-            <p>Helpful information and downloadable content coming soon.</p>
+            <p>Learn about strategic giving and how to maximize the impact of your generosity.</p>
         </div>
     </section>
 
-    <!-- Content Placeholder -->
-    <section class="content-placeholder">
+    <!-- Resources Content -->
+    <section class="section-padding" style="background-color: var(--color-gray);">
         <div class="container">
-            <p>This page is currently under construction. Please check back later.</p>
+
+            <div class="resources-grid">
+
+                <!-- Resource 1 -->
+                <div class="resource-card">
+                    <h3>Why Giving From Wealth Matters</h3>
+                    <p>Discover how strategic charitable giving can create meaningful impact while providing significant
+                        tax advantages. Learn why more donors are choosing to give from their accumulated wealth rather
+                        than just income.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+
+                <!-- Resource 2 -->
+                <div class="resource-card">
+                    <h3>What Are Donor-Advised Funds (DAFs)?</h3>
+                    <p>A comprehensive guide to Donor-Advised Funds — one of the fastest-growing charitable giving
+                        vehicles. Understand how DAFs work and why they've become a popular choice for strategic
+                        philanthropists.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="resource-card">
+                    <h3>Why DAFs Are an Important Giving Tool</h3>
+                    <p>Explore the unique benefits of Donor-Advised Funds, including immediate tax deductions,
+                        investment growth potential, and the flexibility to support causes you care about over time.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+
+                <!-- Resource 4 -->
+                <div class="resource-card">
+                    <h3>How to Open a GiveWise Giving Fund</h3>
+                    <p>A step-by-step guide to establishing your own GiveWise Giving Fund. Learn about the process,
+                        minimum contributions, and how to start making grants to your favorite charities.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+
+                <!-- Resource 5 -->
+                <div class="resource-card">
+                    <h3>Tax-Efficient Giving Strategies</h3>
+                    <p>Maximize your charitable impact with tax-smart giving strategies. Learn about donating
+                        appreciated securities, bunching donations, and other approaches that benefit both you and the
+                        causes you support.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+
+                <!-- Resource 6 -->
+                <div class="resource-card">
+                    <h3>Legacy Giving: Creating Lasting Impact</h3>
+                    <p>Planning your charitable legacy ensures your values live on for generations. Explore options for
+                        including charitable giving in your estate plan and creating a lasting philanthropic impact.</p>
+                    <a href="#">Read Article →</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding" style="background-color: var(--color-blue); text-align: center;">
+        <div class="container">
+            <h2 style="color: white; font-size: 2rem; margin-bottom: 20px;">Ready to Start Your Giving Journey?</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 30px;">Let us help you find the
+                right giving strategy for your goals.</p>
+            <a href="donate.html" class="btn" style="background-color: white; color: var(--color-blue);">DONATE NOW</a>
         </div>
     </section>
 
@@ -75,6 +191,7 @@
                     <ul>
                         <li><a href="who-we-are.html">Who We Are</a></li>
                         <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                         <li><a href="donate.html">Donate</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
