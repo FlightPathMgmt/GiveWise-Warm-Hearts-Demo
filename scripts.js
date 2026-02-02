@@ -1,0 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+    }
+});
