@@ -6,6 +6,247 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate — Warm Hearts Foundation</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* New Donate Header Styles */
+        .donate-hero {
+            background-color: var(--color-blue);
+            color: var(--color-white);
+            padding: 80px 0 120px;
+            /* Extra padding bottom for overlap on mobile stack or just space */
+            position: relative;
+        }
+
+        .donate-hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .donate-text {
+            flex: 1;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .donate-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .donate-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        /* Fake Donation Form */
+        .donation-form-wrapper {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            position: relative;
+            z-index: 20;
+            color: var(--color-dark);
+            flex-shrink: 0;
+            /* Overlap effect slightly downwards if desired, or just standard in grid */
+            margin-bottom: -100px;
+            /* Pull down to overlap the next gray section */
+        }
+
+        .form-toggles {
+            display: flex;
+            background: #f0f2f5;
+            border-radius: 4px;
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        .form-toggle {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.2s;
+        }
+
+        .form-toggle.active {
+            background: white;
+            color: var(--color-blue);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .amount-btn {
+            border: 1px solid #ddd;
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--color-blue);
+        }
+
+        .amount-btn:hover,
+        .amount-btn.selected {
+            border-color: var(--color-blue);
+            background-color: var(--color-blue);
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+        }
+
+        .donate-submit-btn {
+            width: 100%;
+            background-color: var(--color-red);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .donate-submit-btn:hover {
+            background-color: var(--color-red-dark);
+        }
+
+        /* Other Ways Grid Update */
+        .other-ways-container {
+            padding-top: 60px;
+            /* Reduced further to 60px based on user feedback */
+            /* Account for the overlapping form */
+            background-color: var(--color-gray);
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        .other-ways-header {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .other-ways-header h2 {
+            font-size: 2.5rem;
+            color: var(--color-blue);
+            margin-bottom: 15px;
+        }
+
+        .other-ways-header p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .custom-ways-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 40px auto 0;
+        }
+
+        .custom-way-item {
+            background: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 25px 20px;
+            width: 250px;
+            /* Slightly wider */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--color-blue);
+        }
+
+        .custom-way-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-blue);
+        }
+
+        .way-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .way-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            /* Space for description */
+            color: var(--color-blue);
+        }
+
+        .way-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        /* Responsive Layout adjustment */
+        @media (max-width: 900px) {
+            .donate-hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .donate-text {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .donation-form-wrapper {
+                margin: 0 auto -50px;
+            }
+
+            .other-ways-container {
+                padding-top: 100px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -26,102 +267,138 @@
         </div>
     </header>
 
-    <!-- Donate Header -->
-    <section class="donate-header">
+    <!-- Hero Section with Fake Form -->
+    <section class="donate-hero">
         <div class="container">
-            <h1>Ways to Give</h1>
-            <p>Start Changing Lives Today — With One Simple Gift</p>
-        </div>
-    </section>
-
-    <!-- Donation Methods -->
-    <section class="section-padding">
-        <div class="container donation-grid">
-            <!-- Method 1: Securities -->
-            <div class="donation-card">
-                <div class="icon-placeholder">📈</div>
-                <h3>Securities</h3>
-                <p>Donate stocks or mutual funds for a tax-efficient gift.</p>
-                <div class="btn-wrapper">
-                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001"
-                        class="btn btn-primary">GIVE NOW</a>
-                </div>
+            <!-- Left Text -->
+            <div class="donate-text">
+                <h1>Start Changing Lives Today With One Simple Gift</h1>
+                <p>Give by credit card — or in <a href="#other-ways"
+                        style="color: inherit; text-decoration: underline;">any of the other ways we offer</a>. One-time
+                    or ongoing, we’ve made it easy to give your way.</p>
             </div>
 
-            <!-- Method 2: Bank Transfer -->
-            <div class="donation-card">
-                <div class="icon-placeholder">🏦</div>
-                <h3>Bank Transfer (PAD)</h3>
-                <p>No more credit card fees.</p>
-                <div class="btn-wrapper">
-                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001"
-                        class="btn btn-primary">GIVE NOW</a>
+            <!-- Right Form -->
+            <div class="donation-form-wrapper">
+                <div class="form-toggles">
+                    <div class="form-toggle" onclick="toggleDonationType(this)">One Time</div>
+                    <div class="form-toggle active" onclick="toggleDonationType(this)">Monthly</div>
                 </div>
-            </div>
 
-            <!-- Method 3: Other Ways -->
-            <div class="donation-card">
-                <div class="icon-placeholder">💎</div>
-                <h3>Other Ways</h3>
-                <p>We also accept:</p>
-                <ul style="text-align: left; display: inline-block; margin-top: 10px;">
-                    <li>• Publicly Traded Stocks</li>
-                    <li>• Cryptocurrencies</li>
-                    <li>• Donor-Advised Funds</li>
-                </ul>
-                <div class="btn-wrapper">
-                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001"
-                        class="btn btn-primary">GIVE NOW</a>
+                <div class="amount-grid">
+                    <button class="amount-btn">$25</button>
+                    <button class="amount-btn selected">$50</button>
+                    <button class="amount-btn">$100</button>
+                    <button class="amount-btn">Other</button>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Cardholder Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Card Number">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="CVC">
+                    </div>
+                </div>
+
+                <button class="donate-submit-btn">Donate Now</button>
+                <div style="text-align: center; margin-top: 10px; font-size: 0.8rem; color: #888;">
+                    <span style="font-size: 1rem;">🔒</span> Secure Payment
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Other Ways to Give Section -->
-    <section class="section-padding other-ways-section">
-        <div class="container text-center">
-            <h2 style="color: var(--color-blue); font-size: 2.5rem; margin-bottom: 20px;">Other Ways to Give</h2>
-            <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; color: #555;">Some gifts — like
-                stocks, funds, or crypto — need a little more support. That’s where our partner, GiveWise, comes in.</p>
-            <a href="#" class="btn btn-primary" style="margin-bottom: 50px;">GIVE NOW</a>
+    <!-- Other Ways to Give -->
+    <section id="other-ways" class="other-ways-container">
+        <div class="container">
+            <div class="other-ways-header">
+                <h2>Other Ways to Give</h2>
+                <p>Giving doesn’t have to be limited to a credit card. We’ve partnered with GiveWise to make it possible
+                    to give from assets you already hold — like stocks, funds, or crypto — with guidance to make the
+                    process simple and seamless</p>
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="btn btn-primary"
+                    target="_blank">GIVE NOW</a>
+            </div>
 
-            <div class="ways-grid">
-                <!-- Card 1 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">BANK TRANSFER (PAD)</span>
-                    <p>No more credit card fees.</p>
+            <!-- Custom 7-Item Grid -->
+            <div class="custom-ways-grid">
+                <!-- 1. Securities -->
+                <div class="custom-way-item" style="cursor: pointer;"
+                    onclick="if(!event.target.closest('.tax-calc')) window.open('https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001', '_blank')">
+                    <div class="way-icon">📈</div>
+                    <div class="way-label">Securities</div>
+                    <div class="way-desc">Donate stocks or mutual funds for a tax-efficient gift.</div>
+                    <a href="https://flightdemo.tail56ef10.ts.net:8443/#" class="tax-calc" target="_blank"
+                        style="color: var(--color-blue); text-decoration: underline; font-size: 0.9rem; margin-top: 8px; display: inline-block; position: relative; z-index: 2; font-weight: bold;">Use
+                        the GiveWise tax calculator to estimate your savings →</a>
+                </div>
+
+                <!-- 2. PAD -->
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
+                    target="_blank">
+                    <div class="way-icon">🏦</div>
+                    <div class="way-label">Bank Transfer (PAD)</div>
+                    <div class="way-desc">No more credit card fees.</div>
                 </a>
-                <!-- Card 2 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">SECURITIES</span>
-                    <p>Donate stocks or mutual funds for a tax-efficient gift.</p>
+
+                <!-- 3. DAF -->
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
+                    target="_blank">
+                    <div class="way-icon">💼</div>
+                    <div class="way-label">DAF Transfer</div>
+                    <div class="way-desc">Transfer funds from another Donor-Advised Fund or Foundation.</div>
                 </a>
-                <!-- Card 3 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">DAF TRANSFER</span>
-                    <p>Transfer funds from another Donor-Advised Fund or Foundation.</p>
+
+                <!-- 4. Crypto -->
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
+                    target="_blank">
+                    <div class="way-icon">₿</div>
+                    <div class="way-label">Crypto</div>
+                    <div class="way-desc">Donate Bitcoin, Ethereum, and other digital currencies securely.</div>
                 </a>
-                <!-- Card 4 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">CRYPTO</span>
-                    <p>Donate Bitcoin, Ethereum, and other digital currencies securely.</p>
+
+                <!-- 5. Will -->
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
+                    target="_blank">
+                    <div class="way-icon">📜</div>
+                    <div class="way-label">Gift in Will</div>
+                    <div class="way-desc">Create a lasting impact or leave a legacy.</div>
                 </a>
-                <!-- Card 5 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">GIFT IN WILL</span>
-                    <p>Create a lasting impact or leave a legacy.</p>
+
+                <!-- 6. Flow-Through -->
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
+                    target="_blank">
+                    <div class="way-icon">🍁</div>
+                    <div class="way-label">Flow-Through Shares</div>
+                    <div class="way-desc">Most tax-efficient way to give in Canada.</div>
                 </a>
-                <!-- Card 6 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">FLOW THROUGH SHARES</span>
-                    <p>Most tax-efficient way to give in Canada.</p>
-                </a>
-                <!-- Card 7 -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="way-card">
-                    <span class="way-card-title">REAL ESTATE</span>
-                    <p>Turn property into powerful generosity.</p>
+
+                <!-- 7. Real Estate -->
+                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
+                    target="_blank">
+                    <div class="way-icon">🏡</div>
+                    <div class="way-label">Real Estate</div>
+                    <div class="way-desc">Turn property into powerful generosity.</div>
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- Explore Strategic Giving Section -->
+    <section class="section-padding" style="background-color: var(--color-blue); text-align: center;">
+        <div class="container">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Make Your Giving Go Further</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem;">Discover
+                personalized ways to maximize the impact of your generosity.</p>
+            <a href="resources.html" class="btn" style="background-color: white; color: var(--color-blue);">LEARN
+                MORE</a>
         </div>
     </section>
 
@@ -161,6 +438,19 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script>
+        function toggleDonationType(el) {
+            document.querySelectorAll('.form-toggle').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        document.querySelectorAll('.amount-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    </script>
 </body>
 
 </html>
