@@ -226,6 +226,22 @@
             text-transform: none;
         }
 
+        .give-now-link {
+            display: inline-block;
+            margin-top: auto;
+            /* Push to bottom if flex column */
+            padding-top: 15px;
+            font-weight: 800;
+            color: var(--color-light-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .give-now-link:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive Layout adjustment */
         @media (max-width: 900px) {
             .donate-hero .container {
@@ -261,7 +277,7 @@
             <nav class="nav-links">
                 <a href="who-we-are.html">Who We Are</a>
                 <a href="get-involved.html">Get Involved</a>
-                <a href="ways-to-give.html">Ways to Give</a>
+                <a href="ways-to-give/index.html">Ways to Give</a>
                 <a href="donate.html" class="nav-donate-btn">Donate</a>
             </nav>
         </div>
@@ -323,70 +339,77 @@
                 <p>Giving doesn’t have to be limited to a credit card. We’ve partnered with GiveWise to make it possible
                     to give from assets you already hold — like stocks, funds, or crypto — with guidance to make the
                     process simple and seamless</p>
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="btn btn-primary"
+                <a href="https://fund-stg.givewise.ca/gift/charity/888337847RR0001" class="btn btn-primary"
                     target="_blank">GIVE NOW</a>
             </div>
 
             <!-- Custom 7-Item Grid -->
             <div class="custom-ways-grid">
                 <!-- 1. Securities -->
-                <div class="custom-way-item" style="cursor: pointer;"
-                    onclick="if(!event.target.closest('.tax-calc')) window.open('https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001', '_blank')">
+                <div class="custom-way-item">
                     <div class="way-icon">📈</div>
                     <div class="way-label">Securities</div>
                     <div class="way-desc">Donate stocks or mutual funds for a tax-efficient gift.</div>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
                     <a href="https://flightdemo.tail56ef10.ts.net:8443/#" class="tax-calc" target="_blank"
-                        style="color: var(--color-blue); text-decoration: underline; font-size: 0.9rem; margin-top: 8px; display: inline-block; position: relative; z-index: 2; font-weight: bold;">Use
+                        style="color: var(--color-blue); text-decoration: underline; font-size: 0.8rem; margin-top: 8px; display: inline-block; position: relative; z-index: 2;">Use
                         the GiveWise tax calculator to estimate your savings →</a>
                 </div>
 
                 <!-- 2. PAD -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
-                    target="_blank">
+                <div class="custom-way-item">
                     <div class="way-icon">🏦</div>
                     <div class="way-label">Bank Transfer (PAD)</div>
                     <div class="way-desc">No more credit card fees.</div>
-                </a>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
+                </div>
 
                 <!-- 3. DAF -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
-                    target="_blank">
+                <div class="custom-way-item">
                     <div class="way-icon">💼</div>
                     <div class="way-label">DAF Transfer</div>
                     <div class="way-desc">Transfer funds from another Donor-Advised Fund or Foundation.</div>
-                </a>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
+                </div>
 
                 <!-- 4. Crypto -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
-                    target="_blank">
+                <div class="custom-way-item">
                     <div class="way-icon">₿</div>
                     <div class="way-label">Crypto</div>
                     <div class="way-desc">Donate Bitcoin, Ethereum, and other digital currencies securely.</div>
-                </a>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
+                </div>
 
                 <!-- 5. Will -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
-                    target="_blank">
+                <div class="custom-way-item">
                     <div class="way-icon">📜</div>
                     <div class="way-label">Gift in Will</div>
                     <div class="way-desc">Create a lasting impact or leave a legacy.</div>
-                </a>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
+                </div>
 
                 <!-- 6. Flow-Through -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
-                    target="_blank">
+                <div class="custom-way-item">
                     <div class="way-icon">🍁</div>
                     <div class="way-label">Flow-Through Shares</div>
                     <div class="way-desc">Most tax-efficient way to give in Canada.</div>
-                </a>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
+                </div>
 
                 <!-- 7. Real Estate -->
-                <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="custom-way-item"
-                    target="_blank">
+                <div class="custom-way-item">
                     <div class="way-icon">🏡</div>
                     <div class="way-label">Real Estate</div>
                     <div class="way-desc">Turn property into powerful generosity.</div>
-                </a>
+                    <a href="https://flightdemo.tail56ef10.ts.net/gift/charity/888337847RR0001" class="give-now-link"
+                        target="_blank">GIVE NOW &gt;</a>
+                </div>
             </div>
         </div>
     </section>
@@ -397,7 +420,8 @@
             <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Make Your Giving Go Further</h2>
             <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem;">Discover
                 personalized ways to maximize the impact of your generosity.</p>
-            <a href="ways-to-give.html" class="btn" style="background-color: white; color: var(--color-blue);">LEARN
+            <a href="ways-to-give/index.html" class="btn"
+                style="background-color: white; color: var(--color-blue);">LEARN
                 MORE</a>
         </div>
     </section>
@@ -417,7 +441,7 @@
                     <ul>
                         <li><a href="who-we-are.html">Who We Are</a></li>
                         <li><a href="get-involved.html">Get Involved</a></li>
-                        <li><a href="ways-to-give.html">Ways to Give</a></li>
+                        <li><a href="ways-to-give/index.html">Ways to Give</a></li>
                         <li><a href="donate.html">Donate</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
